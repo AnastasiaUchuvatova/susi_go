@@ -50,6 +50,4 @@ class Round:
     def turn(self):
         pass
 
-a = Round.create_deck()
-a.shuffle()
-print(repr(a))
+
