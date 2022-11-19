@@ -10,9 +10,6 @@ class Hand:
     return self.cards
 
 
-  def __len__(self):
-      return len(self.cards)
-
 
   def add(self, card: Card):
       """ Добавить карту в КОНЕЦ списка. """
@@ -20,14 +17,15 @@ class Hand:
 
 
   def counts(self):
-    self.count_tem = self.cards.count('темпура')
-    self.count_sas = self.cards.count('сасими')
-    self.count_kl = self.cards.count('клёцки')
-    self.count_ln = self.cards.count('лосось_нигири')
-    self.count_kn = self.cards.count('кальмар_нигири')
-    self.count_yn = self.cards.count('яйцо_нигири')
-    self.count_pu = self.cards.count('пудинг')
-    self.count_sr = self.cards.count('суси_ролл')
+    s = repr(self.cards)
+    self.count_tem = s.count('темпура')
+    self.count_sas = s.count('сасими')
+    self.count_kl = s.count('клёцки')
+    self.count_ln = s.count('лосось_нигири')
+    self.count_kn = s.count('кальмар_нигири')
+    self.count_yn = s.count('яйцо_нигири')
+    self.count_pu = s.count('пудинг')
+    self.count_sr = s.count('суси_ролл')
     return self.count_tem, self.count_sas, self.count_kl, self.count_ln, self.count_kn, self.count_yn, self.count_pu, self.count_sr
 
 

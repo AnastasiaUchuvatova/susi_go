@@ -11,12 +11,10 @@ def test_Card_repr():
 def test_Hand_add():
     ca = Card('лосось_нигири')
     mas = Hand([ca])
-    assert (repr(mas) == 'лосось_нигири')
-    assert (len(mas) == 1)
+    assert (repr(mas) == ['лосось_нигири'])
     ca1 = Card('яйцо_нигири')
     mas.add(ca1)
     assert (repr(mas) == 'лосось_нигири яйцо_нигири')
-    assert (len(mas) == 2)
 
 
 def test_Hand_points():
