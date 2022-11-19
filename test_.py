@@ -1,11 +1,12 @@
 from Card import Card
+from Cardlist import Deck
 from Hand import Hand
+
 
 
 def test_Card_repr():
     ca = Card('лосось нигири')
     assert (repr(ca) == 'лосось нигири')
-
 
 def test_Hand_add():
     ca = Card('лосось нигири')
@@ -25,4 +26,10 @@ def test_Hand_points():
     assert (mas1.points() == 17)
     assert (mas2.points() == 16)
 
+def test_Cardlist_Deck_draw():
+    a = Deck(['темпура', 'сасими', 'клёцки'])
+    assert(a.draw(2) == ['темпура', 'сасими'])
 
+def test_Cardlist_Deck_shuffle():
+    a = Deck(['темпура', 'сасими', 'клёцки'])
+    assert (a.shuffle() != 'темпура сасими клёцки')
