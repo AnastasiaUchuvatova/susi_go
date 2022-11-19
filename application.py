@@ -1,15 +1,13 @@
 from Card import Card
 from Cardlist import Cardlist, Deck
 
-
-class Round:
+class Game:
     # для 3 игроков
     DEFAULT_HAND_SIZE = 9
     PLAYER_SIZE = 3
 
-    PLAY_CARD = 'PLAY_CARD'     # начало хода игрока
-    NEXT_PLAYER = 'NEXT_PLAYER' # ход игрока закончен
-    END = 'END'                 # раунд закончен
+    NEW_ROUND = 'NEW_ROUND'     # раунд закончен
+    END = 'END'                 # игра закончена
 
     def __init__(self):
         self.players = None
@@ -35,14 +33,31 @@ class Round:
             all_cards.add(Card('кальмар нигири'))
         return all_cards
 
+class Round:
+    # для 3 игроков
+    DEFAULT_HAND_SIZE = 9
+    PLAYER_SIZE = 3
+
+    PLAY_CARD = 'PLAY_CARD'     # начало хода игрока
+    NEXT_PLAYER = 'NEXT_PLAYER' # ход игрока закончен
+    END = 'END'                 # раунд закончен
+
+    def __init__(self, deck):
+        self.deck = deck
+        self.players = None
+        self.player_index = None
+        self.state = None
+
     @staticmethod
-    def create_round(player_names: list[str], hand_size: int = DEFAULT_HAND_SIZE):
+    def create_round(deck, hand_size: int = DEFAULT_HAND_SIZE):
         """Подготовка к игре:
         Создается 3 массива из 9 карт
         """
-        round = Round()
+        decks = [''] * 3
+        for i in range(3):
+            decks[i] = deck.draw(hand_size)
+            print(decks[i])
 
-        return round
 
     def next_cardlist(self):
         self.player_index = (self.player_index + 1) % self.PLAYER_SIZE
