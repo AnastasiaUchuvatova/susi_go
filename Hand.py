@@ -7,7 +7,7 @@ class Hand:
 
 
   def __repr__(self):
-    return ' '.join([str(card) for card in self.cards])
+    return self.cards
 
 
   def __len__(self):
@@ -16,35 +16,18 @@ class Hand:
 
   def add(self, card: Card):
       """ Добавить карту в КОНЕЦ списка. """
-      self.cards.append(card)
+      self.cards += ' ' + repr(card)
 
 
   def counts(self):
-    self.count_tem = 0
-    self.count_sas = 0
-    self.count_kl = 0
-    self.count_ln = 0
-    self.count_kn = 0
-    self.count_yn = 0
-    self.count_pu = 0
-    self.count_sr = 0
-    for s in self.cards:
-      if repr(s) == 'темпура':
-        self.count_tem += 1
-      if repr(s) == 'сасими':
-        self.count_sas += 1
-      if repr(s) == 'клёцки':
-        self.count_kl += 1
-      if repr(s) == 'лосось_нигири':
-        self.count_ln += 1
-      if repr(s) == 'кальмар_нигири':
-        self.count_kn += 1
-      if repr(s) == 'яйцо_нигири':
-        self.count_yn += 1
-      if repr(s) == 'пудинг':
-        self.count_pu += 1
-      if repr(s) == 'суси_ролл':
-        self.count_sr += 1
+    self.count_tem = self.cards.count('темпура')
+    self.count_sas = self.cards.count('сасими')
+    self.count_kl = self.cards.count('клёцки')
+    self.count_ln = self.cards.count('лосось_нигири')
+    self.count_kn = self.cards.count('кальмар_нигири')
+    self.count_yn = self.cards.count('яйцо_нигири')
+    self.count_pu = self.cards.count('пудинг')
+    self.count_sr = self.cards.count('суси_ролл')
     return self.count_tem, self.count_sas, self.count_kl, self.count_ln, self.count_kn, self.count_yn, self.count_pu, self.count_sr
 
 

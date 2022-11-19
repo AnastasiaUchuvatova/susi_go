@@ -74,11 +74,15 @@ class Game:
 
 
     def model_update_loop(self, decks):
+        i = 0
         while self.state != Game.State.END:
             self.model_update(decks)
-            print(self.player[0].name, self.player[0].hand)
-            print(self.player[1].name, self.player[1].hand)
-            print(self.player[2].name, self.player[2].hand)
+            i += 1
+            print(i, 'раунд:')
+            print(self.player[0].name, self.player[0].hand, self.player[0].hand.points())
+            print(self.player[1].name, self.player[1].hand, self.player[1].hand.points())
+            print(self.player[2].name, self.player[2].hand, self.player[2].hand.points())
+        app.congratulation_winner()
 
 
     def congratulation_winner(self):
@@ -86,9 +90,12 @@ class Game:
         name = self.player[0].name
         if self.player[1].hand.points() > p:
             name = self.player[1].name
+            p = self.player[1].hand.points()
         if self.player[2].hand.points() > p:
             name = self.player[2].name
+            p = self.player[2].hand.points()
         print(f'Игрок {name} победил!')
+
 
 
 app = Game.create(['Alisa', 'Bob', 'Charly'])
