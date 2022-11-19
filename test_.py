@@ -5,23 +5,23 @@ from Hand import Hand
 
 
 def test_Card_repr():
-    ca = Card('лосось нигири')
-    assert (repr(ca) == 'лосось нигири')
+    ca = Card('лосось_нигири')
+    assert (repr(ca) == 'лосось_нигири')
 
 def test_Hand_add():
-    ca = Card('лосось нигири')
+    ca = Card('лосось_нигири')
     mas = Hand([ca])
-    assert (repr(mas) == 'лосось нигири')
+    assert (repr(mas) == 'лосось_нигири')
     assert (len(mas) == 1)
-    ca1 = Card('яйцо нигири')
+    ca1 = Card('яйцо_нигири')
     mas.add(ca1)
-    assert (repr(mas) == 'лосось нигири яйцо нигири')
+    assert (repr(mas) == 'лосось_нигири яйцо_нигири')
     assert (len(mas) == 2)
 
 def test_Hand_points():
-    mas = Hand([Card('лосось нигири'), Card('темпура'), Card('сасими'), Card('клёцки'), Card('пудинг'),Card('суси ролл'),Card('лосось нигири'),Card('кальмар нигири'),Card('яйцо нигири') ])
-    mas1 = Hand([Card('темпура'), Card('темпура'), Card('сасими'), Card('клёцки'), Card('лосось нигири'),Card('яйцо нигири'),Card('лосось нигири'),Card('кальмар нигири'),Card('кальмар нигири') ])
-    mas2 = Hand([Card('темпура'), Card('лосось нигири'), Card('сасими'), Card('кальмар нигири'), Card('темпура'),Card('яйцо нигири'),Card('лосось нигири'),Card('кальмар нигири'),Card('сасими') ])
+    mas = Hand([Card('лосось_нигири'), Card('темпура'), Card('сасими'), Card('клёцки'), Card('пудинг'),Card('суси_ролл'),Card('лосось_нигири'),Card('кальмар_нигири'),Card('яйцо_нигири') ])
+    mas1 = Hand([Card('темпура'), Card('темпура'), Card('сасими'), Card('клёцки'), Card('лосось_нигири'),Card('яйцо_нигири'),Card('лосось_нигири'),Card('кальмар_нигири'),Card('кальмар_нигири') ])
+    mas2 = Hand([Card('темпура'), Card('лосось_нигири'), Card('сасими'), Card('кальмар_нигири'), Card('темпура'),Card('яйцо_нигири'),Card('лосось_нигири'),Card('кальмар_нигири'),Card('сасими') ])
     assert (mas.points() == 9)
     assert (mas1.points() == 17)
     assert (mas2.points() == 16)

@@ -1,23 +1,5 @@
 import random
-
 from Card import Card
-
-class Cardlist:
-    def __init__(self, cards):
-        self.cards = cards
-
-    def __repr__(self):
-        return ' '.join([str(card) for card in self.cards])
-
-
-    def __len__(self):
-        return len(self.cards)
-
-    def add(self, card: Card):
-        """ Добавить карту в КОНЕЦ списка. """
-        self.cards.append(card)
-
-
 
 
 class Deck():

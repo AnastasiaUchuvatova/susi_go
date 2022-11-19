@@ -7,7 +7,7 @@ class Hand:
 
 
   def __repr__(self):
-      return ' '.join([str(card) for card in self.cards])
+    return ' '.join([str(card) for card in self.cards])
 
 
   def __len__(self):
@@ -35,15 +35,15 @@ class Hand:
         self.count_sas += 1
       if repr(s) == 'клёцки':
         self.count_kl += 1
-      if repr(s) == 'лосось нигири':
+      if repr(s) == 'лосось_нигири':
         self.count_ln += 1
-      if repr(s) == 'кальмар нигири':
+      if repr(s) == 'кальмар_нигири':
         self.count_kn += 1
-      if repr(s) == 'яйцо нигири':
+      if repr(s) == 'яйцо_нигири':
         self.count_yn += 1
       if repr(s) == 'пудинг':
         self.count_pu += 1
-      if repr(s) == 'суси ролл':
+      if repr(s) == 'суси_ролл':
         self.count_sr += 1
     return self.count_tem, self.count_sas, self.count_kl, self.count_ln, self.count_kn, self.count_yn, self.count_pu, self.count_sr
 
