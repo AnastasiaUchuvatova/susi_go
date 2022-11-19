@@ -24,3 +24,5 @@ def test_Hand_points():
     assert (mas.points() == 9)
     assert (mas1.points() == 17)
     assert (mas2.points() == 16)
+
+
